@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv").config();
 const cors = require("cors");
 const authController = require("./controllers/authController");
+const blogController = require("./controllers/blogController");
 const app = express();
 
 // Connect to MongoDB
@@ -18,6 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use("/auth", authController);
+app.use("/blog", blogController);
 
 // Start BackEnd Server
 app.listen(process.env.PORT, () =>

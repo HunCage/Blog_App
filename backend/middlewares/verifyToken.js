@@ -7,7 +7,7 @@ const verifyToken = (req, res, next) => {
 
 	if (
 		req.headers.authorization &&
-		req.headers.authorization.startWith("Bearer ")
+		req.headers.authorization.startsWith("Bearer ")
 	) {
 		const token = req.headers.authorization.split(" ")[1];
 		jwt.verify(token, process.env.JWT_SECRET, (err, data) => {
